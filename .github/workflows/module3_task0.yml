@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: Test the build of the app
         uses: actions/checkout@v3
-      - run: bash CI_CD/module3_task0/setup.sh
+      - run: cd CI_CD/module3_task0 && sudo ./setup.sh
 ...
