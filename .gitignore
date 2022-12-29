@@ -1,4 +1,4 @@
-.vscode/*
+**/.vscode/**
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -12,7 +12,7 @@
 *.vsix
 
 # Ingonre the dist directories
-dist
+**/dist/**
 
 CMakeLists.txt.user
 CMakeCache.txt
