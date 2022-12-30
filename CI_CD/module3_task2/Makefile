@@ -9,7 +9,7 @@ post: ## Create a new post
 	@hugo new posts/$(POST_NAME).md 2>/dev/null || true
 	@sed -i 's/^title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
-lint: ## Validate the errors on Makefile script
+lint: ## Validate the errors on setup script
 	@shellcheck setup.sh
 
 package: ## Create a .zip file that contains the binary of awesome api and dist directory

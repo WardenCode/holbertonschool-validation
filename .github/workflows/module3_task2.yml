@@ -10,28 +10,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Go to the project directory
+      - name: Clone the repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Go to the right directory
       - run: cd CI_CD/module3_task2
+
+      - name: Scan the directory
       - run: ls -R
 
       - name: Setup the app
-        uses: actions/checkout@v3
       - run: |
           cd CI_CD/module3_task2
           sudo ./setup.sh
 
       - name: Validate if setup.sh have erros
-        uses: actions/checkout@v3
       - run: |
-          cd CI_CD/module3_task2
-          make lint
+          make -C CI_CD/module3_task2 lint
 
       - name: Build the app
-        uses: actions/checkout@v3
       - run: |
-          cd CI_CD/module3_task2
-          make build
+          make -C CI_CD/module3_task2 build
 
       - name: Saves the dist directory
         uses: actions/upload-artifact@v3
@@ -48,10 +49,8 @@ jobs:
             CD_CD/module_3_task2/
 
       - name: Build and create the package
-        uses: actions/checkout@v3
       - run: |
-          cd CI_CD/module3_task2
-          make package
+          make -C CI_CD/module3_task2 package
 
       - name: Build report for the operation team
         uses: actions/upload-artifact@v3

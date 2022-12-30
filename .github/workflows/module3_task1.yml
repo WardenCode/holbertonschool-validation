@@ -8,15 +8,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup the app
+
+      - name: Clone the repository
         uses: actions/checkout@v3
-      - run: cd CI_CD/module3_task1 && sudo ./setup.sh
+        with:
+          fetch-depth: 0
 
       - name: Validate if setup.sh have erros
-        uses: actions/checkout@v3
-      - run: cd CI_CD/module3_task1 && make lint
+      - run: make -C CI_CD/module3_task1 lint
+
+      - name: Setup the app
+      - run: cd CI_CD/module3_task1 && sudo ./setup.sh
 
       - name: Build the app
-        uses: actions/checkout@v3
-      - run: cd CI_CD/module3_task1 && make build
+      - run: make -C CI_CD/module3_task1 build
 ...
