@@ -28,26 +28,15 @@ jobs:
         run: |
           make -C CI_CD/module3_task2 build
 
-      - name: Scan the directory for the dist folder
+      - name: Scan the directory
         run: ls CI_CD/module3_task2
-
-      - name: Saves the dist directory
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: |
-            dist/
-
-      - name: Loads the dist directory
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: |
-            CD_CD/module_3_task2/
 
       - name: Build and create the package
         run: |
           make -C CI_CD/module3_task2 package
+
+      - name: Scan the directory
+        run: ls CI_CD/module3_task2
 
       - name: Build report for the operation team
         uses: actions/upload-artifact@v3
