@@ -12,11 +12,11 @@ jobs:
 
       - name: Go to the project directory
         uses: actions/checkout@v3
-        run: cd CI_CD/module3_task2
+      - run: cd CI_CD/module3_task2
 
       - name: Check were we are
         uses: actions/checkout@v3
-        run: ls -R
+      - run: ls -R
 
       - name: Setup the app
         uses: actions/checkout@v3
