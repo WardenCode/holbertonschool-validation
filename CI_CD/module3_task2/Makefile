@@ -1,5 +1,5 @@
 build: ## Generate the production directory "dist"
-	hugo
+	@hugo
 
 clean: ## Clean the production directory "dist"
 	@rm -rf dist/*
@@ -13,7 +13,8 @@ lint: ## Validate the errors on Makefile script
 	@shellcheck setup.sh
 
 package: ## Create a .zip file that contains the binary of awesome api and dist directory
-	@zip awesome-website.zip awesome-api dist/
+	 # @zip awesome-website.zip awesome-api dist
+	@zip awesome-website.zip dist
 
 help: ## Shows the help about how to use this Makefile
 	@cat Makefile | grep "^\w*:.*##.*" | sed 's/## //'
