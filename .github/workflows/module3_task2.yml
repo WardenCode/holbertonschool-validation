@@ -23,7 +23,7 @@ jobs:
 
       - name: Test the files
         uses: actions/checkout@v3
-      - run: ls
+      - run: cd CI_CD && ls
 
       - name: Create the package
         uses: actions/checkout@v3
