@@ -32,7 +32,7 @@ jobs:
         with:
           name: dist
           path: |
-            CD_CD/module_3_task2/dist/
+            dist/
 
       - name: Loads the dist directory
         uses: actions/download-artifact@v3
