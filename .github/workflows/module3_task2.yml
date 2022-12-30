@@ -21,6 +21,10 @@ jobs:
         uses: actions/checkout@v3
       - run: cd CI_CD/module3_task2 && make build
 
+      - name: Test the ubication
+        uses: actions/checkout@v3
+      - run: pwd
+
       - name: Create the package
         uses: actions/checkout@v3
       - run: cd CI_CD/module3_task2 && make package
