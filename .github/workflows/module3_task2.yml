@@ -1,0 +1,35 @@
+---
+name: module3_task2
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup the app
+        uses: actions/checkout@v3
+      - run: cd CI_CD/module3_task2 && sudo ./setup.sh
+
+      - name: Validate if setup.sh have erros
+        uses: actions/checkout@v3
+      - run: cd CI_CD/module3_task2 && make lint
+
+      - name: Build the app
+        uses: actions/checkout@v3
+      - run: cd CI_CD/module3_task2 && make build
+
+      - name: Create the package
+        uses: actions/checkout@v3
+      - run: cd CI_CD/module3_task2 && make package
+
+      - name: Build report for the operation team
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-report
+          path: |
+            CI_CD/module_3-task2/awesome-website.zip
+            CI_CD/module_3-task2/DEPLOY.md
+...
