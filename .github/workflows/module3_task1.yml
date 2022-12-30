@@ -1,0 +1,26 @@
+---
+name: module3_task1
+on:
+  schedule:
+    - cron: "30 22 * * 0-6"
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move to the correct directory
+        uses: actions/checkout@v3
+      - run: cd CI_CD/module3_task1
+
+      - name: Setup the app
+        uses: actions/checkout@v3
+      - run: sudo ./setup.sh
+
+      - name: Validate if setup.sh have erros
+        uses: actions/checkout@v3
+      - run: make lint
+
+      - name: Build the app
+        uses: actions/checkout@v3
+      - run: make build
+...
