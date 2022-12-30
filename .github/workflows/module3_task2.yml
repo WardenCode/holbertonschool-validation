@@ -15,12 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Go to the right directory
-        run: cd CI_CD/module3_task2
-
-      - name: Scan the directory
-        run: ls -R
-
       - name: Setup the app
         run: |
           cd CI_CD/module3_task2
@@ -33,6 +27,9 @@ jobs:
       - name: Build the app
         run: |
           make -C CI_CD/module3_task2 build
+
+      - name: Scan the directory for the dist folder
+        run: ls CI_CD/module3_task2
 
       - name: Saves the dist directory
         uses: actions/upload-artifact@v3
