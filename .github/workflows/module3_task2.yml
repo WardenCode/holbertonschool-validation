@@ -27,11 +27,24 @@ jobs:
           cd CI_CD/module3_task2
           make build
 
+      - name: Saves the dist directory
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: |
+            CD_CD/module_3_task2/dist/
+
+      - name: Loads the dist directory
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: |
+            CD_CD/module_3_task2/
+
       - name: Build and create the package
         uses: actions/checkout@v3
       - run: |
           cd CI_CD/module3_task2
-          make build
           make package
 
       - name: Build report for the operation team
@@ -39,6 +52,6 @@ jobs:
         with:
           name: build-report
           path: |
-            CI_CD/module_3-task2/awesome-website.zip
-            CI_CD/module_3-task2/DEPLOY.md
+            CI_CD/module3_task2/awesome-website.zip
+            CI_CD/module3_task2/DEPLOY.md
 ...
