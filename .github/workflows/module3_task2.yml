@@ -16,22 +16,22 @@ jobs:
           fetch-depth: 0
 
       - name: Go to the right directory
-      - run: cd CI_CD/module3_task2
+        run: cd CI_CD/module3_task2
 
       - name: Scan the directory
-      - run: ls -R
+        run: ls -R
 
       - name: Setup the app
-      - run: |
+        run: |
           cd CI_CD/module3_task2
           sudo ./setup.sh
 
       - name: Validate if setup.sh have erros
-      - run: |
+        run: |
           make -C CI_CD/module3_task2 lint
 
       - name: Build the app
-      - run: |
+        run: |
           make -C CI_CD/module3_task2 build
 
       - name: Saves the dist directory
@@ -49,7 +49,7 @@ jobs:
             CD_CD/module_3_task2/
 
       - name: Build and create the package
-      - run: |
+        run: |
           make -C CI_CD/module3_task2 package
 
       - name: Build report for the operation team

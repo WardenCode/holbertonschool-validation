@@ -15,11 +15,11 @@ jobs:
           fetch-depth: 0
 
       - name: Validate if setup.sh have erros
-      - run: make -C CI_CD/module3_task1 lint
+        run: make -C CI_CD/module3_task1 lint
 
       - name: Setup the app
-      - run: cd CI_CD/module3_task1 && sudo ./setup.sh
+        run: cd CI_CD/module3_task1 && sudo ./setup.sh
 
       - name: Build the app
-      - run: make -C CI_CD/module3_task1 build
+        run: make -C CI_CD/module3_task1 build
 ...
