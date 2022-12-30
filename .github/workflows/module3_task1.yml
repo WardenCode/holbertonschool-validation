@@ -8,19 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Move to the correct directory
-        uses: actions/checkout@v3
-      - run: cd CI_CD/module3_task1
-
       - name: Setup the app
         uses: actions/checkout@v3
-      - run: sudo ./setup.sh
+      - run: cd CI_CD/module3_task1 && sudo ./setup.sh
 
       - name: Validate if setup.sh have erros
         uses: actions/checkout@v3
-      - run: make lint
+      - run: cd CI_CD/module3_task1 && make lint
 
       - name: Build the app
         uses: actions/checkout@v3
-      - run: make build
+      - run: cd CI_CD/module3_task1 && make build
 ...
