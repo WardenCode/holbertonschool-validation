@@ -47,5 +47,5 @@ jobs:
             CI_CD/module3_task3/DEPLOY.md
           files: |
             CI_CD/module3_task3/awesome-website.zip
-            CI_CD/module3_task3/DEPLOY.md
+            # CI_CD/module3_task3/DEPLOY.md
 ...
