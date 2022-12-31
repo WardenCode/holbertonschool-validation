@@ -1,6 +1,8 @@
 ---
 name: module3_task2
 on:
+  schedule:
+    - cron: "30 22 * * 0-6"
   push:
     branches:
       - 'main'
@@ -15,28 +17,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Validate if setup.sh have erros
+        run: |
+          make -C CI_CD/module3_task2 lint
+
       - name: Setup the app
         run: |
           cd CI_CD/module3_task2
           sudo ./setup.sh
 
-      - name: Validate if setup.sh have erros
-        run: |
-          make -C CI_CD/module3_task2 lint
-
       - name: Build the app
         run: |
           make -C CI_CD/module3_task2 build
 
-      - name: Scan the directory
-        run: ls CI_CD/module3_task2
-
       - name: Build and create the package
         run: |
           make -C CI_CD/module3_task2 package
-
-      - name: Scan the directory
-        run: ls CI_CD/module3_task2
 
       - name: Build report for the operation team
         uses: actions/upload-artifact@v3
