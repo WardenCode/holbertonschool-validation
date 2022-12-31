@@ -1,14 +1,9 @@
 ---
 name: module3_task3
 on:
-  schedule:
-    - cron: "30 22 * * 0-6"
   push:
     tags:
       - "v*.*.*"
-    branches:
-      - 'main'
-      - 'master'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,8 +25,8 @@ jobs:
 
       - name: Build the app
         run: |
-
           make -C CI_CD/module3_task3 build
+
       - name: Build and create the package
         run: |
           make -C CI_CD/module3_task3 package
