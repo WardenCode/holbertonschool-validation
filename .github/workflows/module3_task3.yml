@@ -1,9 +1,16 @@
 ---
 name: module3_task3
+
 on:
+  schedule:
+    - cron: "30 22 * * 0-6"
   push:
+    branches:
+      - 'main'
+      - 'master'
     tags:
       - "v*.*.*"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,7 +48,11 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: starsWith(github.ref, 'refs/tags/')
         with:
           name: "1.0.0"
-          files: CI_CD/module3_task3/awesome-website.zip
+          body_path: CI_CD/module3_task3/DEPLOY.md
+          files: |
+            CI_CD/module3_task3/awesome-website.zip
+            CI_CD/module3_task3/DEPLOY.md
 ...
