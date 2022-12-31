@@ -14,7 +14,7 @@ lint: ## Validate the errors on setup script
 
 package: ## Create a .zip file that contains the binary of awesome api and dist directory
 	 # @zip awesome-website.zip awesome-api dist
-	@zip awesome-website.zip dist
+	@zip -r awesome-website.zip dist
 
 help: ## Shows the help about how to use this Makefile
 	@cat Makefile | grep "^\w*:.*##.*" | sed 's/## //'
