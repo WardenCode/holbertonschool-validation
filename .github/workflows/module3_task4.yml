@@ -1,0 +1,60 @@
+---
+name: module3_task3
+
+on:
+  schedule:
+    - cron: "30 22 * * 0-6"
+  push:
+    branches:
+      - 'main'
+      - 'master'
+    pull_request:
+      types: [opened, reopened, edited, ready_for_review]
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Clone the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Validate if setup.sh have erros
+        run: |
+          make -C CI_CD/module3_task3 lint
+
+      - name: Setup the app
+        run: |
+          cd CI_CD/module3_task3
+          sudo ./setup.sh
+
+      - name: Build the app
+        run: |
+          make -C CI_CD/module3_task3 build
+
+      - name: Build and create the package
+        run: |
+          make -C CI_CD/module3_task3 package
+
+      - name: Build report for the operation team
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-report
+          path: |
+            CI_CD/module3_task3/awesome-website.zip
+            CI_CD/module3_task3/DEPLOY.md
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: "1.0.0"
+          body_path: CI_CD/module3_task3/DEPLOY.md
+          files: |
+            CI_CD/module3_task3/awesome-website.zip
+            CI_CD/module3_task3/DEPLOY.md
+...
