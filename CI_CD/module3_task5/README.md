@@ -13,10 +13,10 @@ This README.md indicate what we need to use this project
 
 ## Workflow
 
-- Continuous Integration with GitHub Actions
+- Continuous Integration with GitHub Actions.
 
 <img src="https://dduportal.github.io/public/holberton/m3-t0-0.png">
 
-- Add Build Dependencies to the CI Environment
+- Add Build Dependencies to the CI Environment.
 
 <img src="https://dduportal.github.io/public/holberton/m3-t1-0.png">
