@@ -1,5 +1,5 @@
 ---
-name: module3_task3
+name: module3_task4
 
 on:
   schedule:
@@ -25,35 +25,35 @@ jobs:
 
       - name: Validate if setup.sh have erros
         run: |
-          make -C CI_CD/module3_task3 lint
+          make -C CI_CD/module3_task4 lint
 
       - name: Setup the app
         run: |
-          cd CI_CD/module3_task3
+          cd CI_CD/module3_task4
           sudo ./setup.sh
 
       - name: Build the app
         run: |
-          make -C CI_CD/module3_task3 build
+          make -C CI_CD/module3_task4 build
 
       - name: Build and create the package
         run: |
-          make -C CI_CD/module3_task3 package
+          make -C CI_CD/module3_task4 package
 
       - name: Build report for the operation team
         uses: actions/upload-artifact@v3
         with:
           name: build-report
           path: |
-            CI_CD/module3_task3/awesome-website.zip
-            CI_CD/module3_task3/DEPLOY.md
+            CI_CD/module3_task4/awesome-website.zip
+            CI_CD/module3_task4/DEPLOY.md
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          # body_path: CI_CD/module3_task3/DEPLOY.md
+          # body_path: CI_CD/module3_task4/DEPLOY.md
           files: |
-            CI_CD/module3_task3/awesome-website.zip
-            CI_CD/module3_task3/DEPLOY.md
+            CI_CD/module3_task4/awesome-website.zip
+            CI_CD/module3_task4/DEPLOY.md
 ...
