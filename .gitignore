@@ -27,3 +27,4 @@ _deps
 
 # Local Netlify folder
 .netlify
+node_modules

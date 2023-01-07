@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: "30 22 * * 0-6"
   push:
+    paths:
+      - 'module3_task1/**'
 jobs:
   build:
     runs-on: ubuntu-latest
