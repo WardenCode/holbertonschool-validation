@@ -15,4 +15,4 @@ This README.md indicate what we need to use this project
 
 - Continuous Integration with GitHub Actions
 
-<img src="https://dduportal.github.io/public/holberton/m3-t0-0.png">
+![](https://dduportal.github.io/public/holberton/m3-t0-0.png)
