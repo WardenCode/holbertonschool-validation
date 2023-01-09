@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate if setup.sh have erros
+      - name: Validate if setup.sh have errors
         run: |
           make -C CI_CD/module3_task4 lint
 
