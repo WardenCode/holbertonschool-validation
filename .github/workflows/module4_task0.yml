@@ -28,6 +28,10 @@ jobs:
           cd Docker/module4_task0
           sudo ./setup.sh
 
+      - name: validate make
+        run: |
+          make --version
+
       - name: Validate if setup.sh have errors
         env:
           PATH: "$(PATH):/$(go env GOPATH)/bin"
