@@ -3,7 +3,7 @@ This README.md indicate what we need to use this project
 
 ## Prerequisites
 - GoHugo v0.80+
-- goLang
+- golang
 
 ## Lifecycle
 - build
