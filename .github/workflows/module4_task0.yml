@@ -24,6 +24,8 @@ jobs:
           fetch-depth: 0
 
       - name: Validate if setup.sh have erros
+        env:
+          PATH: "$(PATH):/$(go env GOPATH)/bin"
         run: |
           make -C Docker/module4_task0 lint
 
