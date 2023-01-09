@@ -6,10 +6,10 @@ on:
     - cron: "30 22 * * 0-6"
   push:
     paths:
-      - 'module3_task3/**'
+      - "CI_CD/module3_task3/**"
     branches:
-      - 'main'
-      - 'master'
+      - "main"
+      - "master"
     tags:
       - "v*.*.*"
 
@@ -17,7 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Clone the repository
         uses: actions/checkout@v3
         with:
@@ -55,4 +54,3 @@ jobs:
           files: |
             CI_CD/module3_task3/awesome-website.zip
             CI_CD/module3_task3/DEPLOY.md
-...

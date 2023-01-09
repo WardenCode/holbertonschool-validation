@@ -5,12 +5,11 @@ on:
     - cron: "30 22 * * 0-6"
   push:
     paths:
-      - 'module3_task0/**'
+      - "CI_CD/module3_task0/**"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Clone the repository
         uses: actions/checkout@v3
         with:
@@ -18,4 +17,3 @@ jobs:
 
       - name: Test the help command
         run: make -C CI_CD/module3_task0 help
-...

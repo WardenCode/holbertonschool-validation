@@ -6,10 +6,10 @@ on:
     - cron: "30 22 * * 0-6"
   push:
     paths:
-      - 'module3_task5/**'
+      - "CI_CD/module3_task5/**"
     branches:
-      - 'main'
-      - 'master'
+      - "main"
+      - "master"
     pull_request:
     tags:
       - "v*.*.*"
@@ -18,7 +18,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Clone the repository
         uses: actions/checkout@v3
         with:
@@ -60,7 +59,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: './CI_CD/module3_task5/dist'
+          publish-dir: "./CI_CD/module3_task5/dist"
           production-branch: main
           github-token: ${{ secrets.REPO_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
@@ -71,4 +70,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
-...

@@ -6,10 +6,10 @@ on:
     - cron: "30 22 * * 0-6"
   push:
     paths:
-      - 'module3_task4/**'
+      - "CI_CD/module3_task4/**"
     branches:
-      - 'main'
-      - 'master'
+      - "main"
+      - "master"
     pull_request:
       types: [opened, reopened, edited, ready_for_review]
     tags:
@@ -19,7 +19,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Clone the repository
         uses: actions/checkout@v3
         with:
@@ -58,4 +57,3 @@ jobs:
           files: |
             CI_CD/module3_task4/awesome-website.zip
             CI_CD/module3_task4/DEPLOY.md
-...

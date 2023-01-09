@@ -6,7 +6,7 @@ on:
     - cron: "30 22 * * 0-6"
   push:
     paths:
-      - "module4_task0/**"
+      - "Docker/module4_task0/**"
     branches:
       - "main"
       - "master"
