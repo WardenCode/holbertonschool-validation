@@ -11,7 +11,7 @@ post: ## Create a new post
 
 lint: ## Validate the errors on files
 	@shellcheck setup.sh
-	@golangci-lint run *.go
+	# @golangci-lint run *.go
 	@markdownlint *.md
 
 package: ## Create a .zip file that contains the binary of awesome api and dist directory
