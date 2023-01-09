@@ -32,6 +32,7 @@ jobs:
         # env:
         #   PATH: "$(PATH):/$(go env GOPATH)/bin"
         run: |
+          ls Docker/module4_task0
           make -C Docker/module4_task0 lint
 
       - name: Build the app
