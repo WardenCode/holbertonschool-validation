@@ -2,8 +2,6 @@
 name: module4_task0
 
 on:
-  schedule:
-    - cron: "30 22 * * 0-6"
   push:
     paths:
       - "Docker/module4_task0/**"
