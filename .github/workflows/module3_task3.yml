@@ -2,8 +2,6 @@
 name: module3_task3
 
 on:
-  schedule:
-    - cron: "30 22 * * 0-6"
   push:
     paths:
       - "CI_CD/module3_task3/**"
